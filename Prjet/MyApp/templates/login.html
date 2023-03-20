@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block title %}<title>Login | Page</title>{% endblock %}
+{% block content %}
+    <div>
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}    
+    </div>
+    <h1>Login Here</h1>
+    
+    <div class="container">
+        <form class="logform" action="" method="post">
+            {% csrf_token %}
+            <div class="formcont">
+                <div class="inputbox">
+                    <input type="text" name="username">
+                    <span>USERNAME</span>
+                </div><br><br>
+                <div class="inputbox">
+                    <input type="password" name="password">
+                    <span>PASSWORD</span>
+                </div><br>
+                <div class="loginbtn">
+                    <input type="submit" value="Login">
+                </div><br><br>
+                <div>
+                    Dont Have an account? Register <a href="{% url 'register' %}">Here</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}

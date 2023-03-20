@@ -1,0 +1,95 @@
+{% extends 'main.html' %}
+{% block title %}<title>Home | Page</title>{% endblock %}
+{% block content %}
+  <style>
+    .housing
+    {
+        display: flex;
+        background-color: white !important;
+    }
+    
+    .housing > img
+    {
+        margin-left: 70px;
+        width: 500px; 
+        height: 400px;
+        /* background-color: blue; */
+    }
+    .home-text
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        max-width: 700px;
+
+    }
+    .home-text h1
+    {
+        margin-top: 100px;
+        font-weight: bolder;
+        margin-left: 30px;
+        font-size: 40px;
+    }
+    .home-text p
+    {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .headers
+    {
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+    }
+    .about
+    {
+        height: 100vh;
+        background-color: rgb(238, 88, 88);
+    }
+    .about h1
+    {
+        font-size: 40px;
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+    .about img
+    {
+        margin-left: 70px;
+        width: 300px; 
+        height: 400px;
+    }
+
+  </style>
+    <section style="height: 100vh;">
+        <h1 class="headers">Welcome To ToDoLists</h1>
+        <div class="housing">
+            <img src="images/todolist_bg.png" alt="image not found">
+            <div class="home-text">
+                <h1>
+                    Hello There, <br>
+                </h1>
+                <p>This Is A Website For You To Create Your Todo Lists</p>
+                <h4>
+                    Are you someone that forgets what you have to do everyday?
+                    Well look no further notepad.com is a website for you to save your todo list so you can always remmber what you have to do.
+                </h4>
+            </div>
+        </div>
+    </section><hr>
+    <section id="about" class="about">
+        <div >
+            <h1>
+                More On ToDo List
+            </h1>
+            <img src="images/todo_logo.jpg" alt="">
+        </div>
+    </section><hr>
+    <section style="height:100vh;">
+            <div class="headers">
+                <h1>Products</h1>
+            </div>
+    </section>
+    
+{% endblock %}  

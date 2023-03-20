@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+    {% block content %}
+    <style>
+        body
+        {
+            background-color: lightgreen;
+        }
+    </style>
+    <div class="header">
+        <h1>All Customers</h1>
+    </div>
+    <div class="containerss">
+        {% for profile in profiles %}
+          <div class="carda">
+            <div class="card-border-top ">
+            </div>
+            <div class="img">
+                {% if profile.image %}
+                <img src="{{profile.image.url}}" alt="">
+                {% endif %}
+            </div>
+            <span>{{profile.username}}</span>
+            <p class="job">{{profile.phone}}</p>
+            <p class="job">{{profile.email}}</p>
+            <button><a href="{% url 'customer' profile.username  %}">View</a> 
+            </button>
+          </div>      
+        {% endfor %}
+    </div>
+    {% endblock %}

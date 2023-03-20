@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+    {% block content %}
+    <div class="header">
+        {% if group == 'admin'  %}
+            <h1>All TODO LISTs</h1>
+        {% else %}    
+            <h1>TODO LISTs</h1>
+            <p>
+                <a href="{% url 'todo_completed' %}"><h3>Completed</h3></a><a href="{% url 'todo_notcompleted' %}"><h3>Not Completed</h3></a>
+                
+            </p>
+        {% endif %}
+    </div>
+    <div class="container">
+        {% for li in list %}
+           <div class="card">
+                <h3>Title: {{li.title}}</h3>
+                <p>Description: {{li.desc}}</p>
+                {% if li.iscompleted == True %}
+                <p>Completed</p>
+                {% else %}
+                <p>Not Completed</p>
+                {% endif %}
+                {% if group == 'admin' %}
+                <p>Posted By: {{li.post_by}}</p>
+                {% endif %}
+                <div class="crud">
+                    <a href="{%url 'edit' li.id  %}" class="blue">Edit</a>
+                    <a href="{% url 'delete' li.id %}" class="red">Delete</a>
+                </div>
+           </div>
+        {% endfor %}
+    </div>
+    {% endblock %}

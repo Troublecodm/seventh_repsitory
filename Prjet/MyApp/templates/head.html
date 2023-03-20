@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRNYVZxux5tosKAVgN4Tkvz-zw5sUd3ZXbcw&usqp=CAU" type="image/x-icon">
+    <style>
+        .nav
+        {
+           display: flex;
+           justify-content: space-between;
+           align-items: flex-end;
+           width: 100%;
+           height: 80px;
+           border-bottom: 2px solid rgb(238, 88, 88);
+           background-color: rgb(238, 88, 88);
+        }
+        .logo > h1
+        {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .links
+        {
+            position: relative;
+
+        }
+        .links a
+        {
+            position: relative;
+            top: 20px;
+            display: inline-block;
+            height: 80px;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 900;
+            font-size: 20px;
+        }
+        .links a:hover
+        {
+            color: rgb(0, 0, 0);
+
+        }
+        .links > a > span > img
+        {
+            top: 30px;
+        }
+        .profile-pic-icon
+        {
+            width: 50px;
+            height: 50px;
+            /* background-color: red; */
+            display: inline-block;
+        }
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* background-color: rgb(252, 106, 106); */
+        }
+        .red
+        {
+            background-color: red !important;
+            color: white;
+        }
+        .blue
+        {
+            background-color: blue !important;
+            color: white;
+        }
+        .yellow
+        {
+            background-color: yellow !important;
+        }
+        .containerss
+        {
+           width: 100%;
+           margin-top: 100px;
+           display: grid;
+           gap: 10px;
+           grid-template-columns: auto auto auto;
+           justify-content: space-around;
+        }
+        .card
+        {
+          width: 400px;
+          height: 200px;
+          border: 4px solid rgb(238, 88, 88);;
+          border-radius: 10px;
+          padding: 15px;
+          position: relative;
+        }
+        .card > h1
+        {
+            font-size: 35px;
+            display: flex;
+            justify-content: center;
+        }
+        .card > p
+        {
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            max-height: 100px;
+            overflow: auto;
+        }
+        .card span
+        {
+            color: blue;
+            font-family: monospace;
+        }
+        .card h2
+        {
+            color: blue;
+            font-size: 50px;
+           display: flex;
+           justify-content: center;
+        }
+        .header
+        {
+            text-align: center;
+            margin-top: 15px;
+            position: relative;
+        }
+        .header h3 
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .user-infos
+        {
+            justify-content: center;
+            /* display: flex; */
+            font-size: 30px;
+            margin-left: 500px;
+        }
+        .user-infos > p
+        {
+            font-family: monospace;
+        }
+        .login-as
+        {
+            margin-top: 300px;
+            margin-left: 1000px;
+            font-size: 20px;
+        }
+        .crud 
+        {
+            /* margin-top: 100px; */
+            text-align: end;
+            position: absolute;
+            top: 85%;
+            width: 100%;
+            left: -20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        .crud a
+        {
+            text-decoration: none;
+            padding: 6px;
+            border: 2px solid black;
+            background-color: black;
+            color: white;
+            transition: .5s;
+        }
+        .profile-pic{
+            max-width: 200px;
+            max-height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .logform{
+            width: 400px;
+            /* border: 2px solid black; */
+            padding: 50px;
+        }
+        .inputbox
+        {
+            position: relative;
+        }
+        .inputbox input,.inputbox textarea
+        {
+            padding: 5px 4px;
+            vertical-align: middle;
+            border: none;
+            border-bottom: 2px solid black;
+            margin: 5px;
+            outline: none;
+            resize: none;
+        }
+        .inputbox > span
+        {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            padding-left: 4px;
+            transition: .3s;
+            pointer-events: none;
+            color: #666;
+        }
+        .inputbox input:focus ~ span,
+        .inputbox textarea:focus ~ span,
+        .inputbox input:valid ~ span,
+        .inputbox textarea:valid ~ span
+        {
+            transform: translateY(-20px);
+            font-size: 15px;
+            font-weight: 900;
+            color: #313131;
+        }
+        .loginbtn > input
+        {
+            outline: none;
+            padding: 6px 11px;
+            background-color: rgb(28, 81, 99);
+            border: none;
+            color: white;
+        }
+        .formcont
+        {
+            width: 500px;
+            padding: 30px;
+        }
+        /* Hide the default checkbox */
+        .containers input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        }
+
+        .containers {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        font-size: 20px;
+        user-select: none;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 1.6em;
+        width: 1.6em;
+        background-color: #ccc;
+        border-radius: 50%;
+        transition: .4s;
+        }
+
+        .checkmark:hover {
+        box-shadow: inset 17px 17px 16px #b3b3b3,
+                    inset -17px -17px 16px #ffffff;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .containers input:checked ~ .checkmark {
+        box-shadow: none;
+        background-color: rgb(0, 0, 0);
+        transform: rotateX(360deg);
+        }
+
+        .containers input:checked ~ .checkmark:hover {
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .containers input:checked ~ .checkmark:after {
+        display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .containers .checkmark:after {
+        left: 0.60em;
+        top: 0.4em;
+        width: 0.25em;
+        height: 0.5em;
+        border: solid white;
+        border-width: 0 0.15em 0.15em 0;
+        box-shadow: 0.1em 0.1em 0em 0 rgba(0,0,0,0.3);
+        transform: rotate(45deg);
+        } 
+        .carda {
+        width: 300px;
+        height: 254px;
+        background: #67f17e;
+        border: 4px solid rgb(238, 88, 88);
+        border-radius: 15px;
+        box-shadow: 1px 5px 10px 0px #5c880a6b;
+        }
+       .carda span {
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        display: block;
+        padding-top: 10px;
+        font-size: 20px;
+        }
+
+        .carda .job {
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        }
+
+        .carda .img > img {
+        display: block;    
+        width: 100px;
+        height: 90px;
+        background: #000000;
+        border-radius: 15px;
+        margin: auto;
+        margin-top: 9px;
+        }
+
+        .carda button {
+        padding: 8px 25px;
+        display: block;
+        margin: auto;
+        border-radius: 8px;
+        border: none;
+        margin-top: 30px;
+        background: rgb(238, 88, 88);
+        color: white;
+        font-weight: 600;
+        }
+        .carda button > a
+        {
+            color: white;
+            text-decoration: none;
+        }
+
+        .carda button:hover {
+        background-color: #90d660;
+         color: rgb(238, 88, 88);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <h1>ToDo Lists</h1>
+        </div>
+        {% if request.user.is_authenticated %}
+        {% comment %} <div>
+            <h1>Welcome {{user.username}}</h1>
+        </div> {% endcomment %}
+            {% if group == 'customer' %}
+                <div class="links">
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'todo' %}">ToDoLists</a>
+                    <a href="{% url 'add_todo' %}">Add ToDoList</a>
+                    <a href="{% url 'user_page' %}">Profile</a>
+                    <a href="{% url 'user_page' %}"><span class="profile-pic-icon"><img width="40" height="40" src="{{request.user.profile.image.url}}" alt="....."></span></a>
+                </div>
+            {% elif group == 'admin' %}
+            <div class="links">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'todo' %}">ToDoLists</a>
+                <a href="{% url 'all_customers' %}">Customers</a>
+                <a href="{% url 'user_page' %}">Profile</a>
+                <a href="#"><span class="profile-pic-icon"><img width="40" height="40" src="{{request.user.profile.image.url}}" alt="....."></span></a>
+            </div>
+            {% endif %}    
+        {% else %}
+            <a href="{% url 'login' %}"><span style="background-color: red;" class="profile-pic-icon"></span></a>
+        {% endif %}
+    </div>

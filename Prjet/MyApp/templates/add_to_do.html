@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block title %}<title>Add ToDoList</title>{% endblock %}
+{% block content %}
+    <div class="container">
+        <form class="logform" action="" method="post">
+            {% csrf_token %}
+            <div class="formcont">
+                <div class="inputbox">
+                    <input type="text" name="title" required>
+                    <span>TITLE</span>
+                </div><br><br>
+                <div class="inputbox">
+                    <textarea type="text" name="desc" required></textarea>
+                    <span>DESCRIPTION</span>
+                </div><br>
+                <div class="loginbtn">
+                    <input type="submit" value="ADD">
+                </div><br><br>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

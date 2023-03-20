@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block title %}
+<title> Profile | {{user.username}} </title>
+{% endblock  %}
+    {% block content %} 
+        <div class="user-infos">
+            {% if user.image %}
+            <img src="{{user.image.url}}" alt="Img" class="profile-pic">
+            {% endif %}
+            <p>Username: {{user.username}}</p>
+            <p>Email: {{user.email}}</p>
+            <p>Phone: {{user.phone}}</p>
+            <p>Date Created: {{user.date_created}}</p>
+            <p>Total ToDoList: {{total_notes}}</p>
+            <p>You Have {{total_completed}} Completed Lists</p>
+            <p>You Have {{total_notcompleted}} UnCompleted Lists</p>
+            <div>
+                <a href="{% url 'acc_settings' %}">Settings</a><br>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+        <div>
+            <h1 class="header login-as">Logged in as: {{user.username}}</h1>
+        </div>
+    {% endblock  %}

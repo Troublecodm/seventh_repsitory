@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+    {% block title %}
+        <title>Register | Page</title>
+    {% endblock %}
+        {% block content %}
+            <h1>Register Here</h1>
+            <div class="container">
+                <form class="logform" action="" method="post">
+                    {% csrf_token %}
+                    <div class="formcont">
+                        <div class="inputbox">
+                            {{form.username}}
+                            <span>USERNAME</span>
+                        </div><br><br>
+                        <div class="inputbox">
+                            {{form.email}}
+                            <span>EMAIL</span>
+                        </div><br>
+                        <div class="inputbox">
+                            <input type="text" name="phone" >
+                            <span>PHONE</span>
+                        </div><br><br>
+                        <div class="inputbox">
+                            {{form.password1}}
+                            <span>PASSWORD</span>
+                        </div><br>
+                        <div class="inputbox">
+                            {{form.password2}}
+                            <span>CONFIRM PASSWORD</span>
+                        </div><br>
+                        <div class="loginbtn">
+                            <input type="submit" value="REGISTER">
+                        </div><br><br>
+                        <div>
+                            Have an account? Login <a href="{% url 'login' %}">Here</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endblock content %}

@@ -1,0 +1,8 @@
+{% extends 'main.html' %}
+    {% block content %}
+    <p>Welcome to {{profiles.username}}'s Page</p>
+    <p>{{profiles.username}} Has {{total_notes}} Notes</p>
+
+    <p>Phone: {{profiles.phone}}</p>
+    <p>Email: {{profiles.email}}</p>
+    {% endblock %}
